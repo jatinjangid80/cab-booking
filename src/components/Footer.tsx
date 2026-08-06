@@ -22,27 +22,21 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
 
   return (
     <footer className="bg-[#111827] text-slate-300 border-t border-slate-800 pt-16 pb-12 relative overflow-hidden">
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
-        
+
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          
+
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white p-0.5 border border-slate-700 shadow-md">
-                <img
-                  src="/src/assets/images/cab_booking_logo.png"
-                  alt="Cab Booking Logo"
-                  className="w-full h-full object-cover rounded-lg"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div>
-                <span className="text-xl font-black text-white">CAB</span>
-                <span className="text-xl font-black text-[#E53935] ml-1">BOOKING</span>
-              </div>
+            <div className="flex items-center">
+              <img
+                src="/cab_booking_logo.png"
+                alt="Cab Booking Logo"
+                className="h-12 sm:h-16 w-auto object-contain"
+                referrerPolicy="no-referrer"
+              />
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm font-medium">
@@ -51,13 +45,13 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
 
             <div className="space-y-1.5 text-xs text-slate-400 font-medium">
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#E53935]" /> +91 98765 43210 (24x7 Support)
+                <Phone className="w-3.5 h-3.5 text-[#E53935]" /> +91 95291 55562 (24x7 Support)
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#E53935]" /> booking@yatracabs.com
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#E53935]" /> Delhi, Jaipur, Mumbai, Agra, Udaipur Hubs
+                <MapPin className="w-3.5 h-3.5 text-[#E53935]" /> FF-35, JTM Mall, Jagatpura, Jaipur
               </div>
             </div>
           </div>
@@ -66,12 +60,12 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">Our Services</h4>
             <ul className="space-y-2 text-xs font-medium text-slate-400">
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Airport Transfers</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">One Way Outstation</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Round Trip Cabs</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Hourly Local Rentals</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">VIP Corporate Travel</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0,0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Wedding Car Rental</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Airport Transfers</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">One Way Outstation</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Round Trip Cabs</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Hourly Local Rentals</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">VIP Corporate Travel</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Wedding Car Rental</button></li>
             </ul>
           </div>
 

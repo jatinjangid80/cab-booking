@@ -24,6 +24,7 @@ export interface Service {
   iconName: string;
   image: string;
   badge?: string;
+  buttonText?: string;
 }
 
 export interface Destination {

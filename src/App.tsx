@@ -15,10 +15,14 @@ import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { BookingModal } from './components/BookingModal';
 import { Footer } from './components/Footer';
+import { LoginModal } from './components/LoginModal';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('home');
   const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loggedInEmail, setLoggedInEmail] = useState('');
   const [bookingDetails, setBookingDetails] = useState<Partial<BookingDetails>>({});
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
   const [bookingsList, setBookingsList] = useState<BookingDetails[]>(INITIAL_BOOKINGS);
@@ -46,6 +50,9 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onOpenBooking={() => handleOpenBooking()}
+        onOpenLogin={() => setIsLoginOpen(true)}
+        isLoggedIn={isLoggedIn}
+        userEmail={loggedInEmail}
       />
 
       {/* Main Page Render */}
@@ -63,6 +70,11 @@ export default function App() {
             />
             <PopularFleet
               onSelectVehicleForBooking={(v) => handleOpenBooking({}, v)}
+              limit={6}
+              onViewAll={() => {
+                setActiveTab('fleet');
+                window.scrollTo(0, 0);
+              }}
             />
             <WhyChooseUs />
             <HowBookingWorks
@@ -90,6 +102,10 @@ export default function App() {
         {activeTab === 'fleet' && (
           <PopularFleet
             onSelectVehicleForBooking={(v) => handleOpenBooking({}, v)}
+            onBackToHome={() => {
+              setActiveTab('home');
+              window.scrollTo(0, 0);
+            }}
           />
         )}
 
@@ -135,6 +151,17 @@ export default function App() {
         initialDetails={bookingDetails}
         initialVehicle={selectedVehicle}
         onBookingConfirmed={handleBookingConfirmed}
+      />
+
+      {/* Login Modal */}
+      <LoginModal 
+        isOpen={isLoginOpen} 
+        onClose={() => setIsLoginOpen(false)} 
+        onLoginSuccess={(email) => {
+          setIsLoggedIn(true);
+          setLoggedInEmail(email || 'support@lookmyholidays.in');
+          setIsLoginOpen(false);
+        }}
       />
 
     </div>

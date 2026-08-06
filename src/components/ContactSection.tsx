@@ -45,14 +45,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
 
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
               <a
-                href="tel:+919876543210"
+                href="tel:+919529155562"
                 className="py-3.5 px-6 rounded-full bg-[#E53935] hover:bg-red-600 text-white font-extrabold text-xs shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
-                <Phone className="w-4 h-4" /> Call Now: +91 98765 43210
+                <Phone className="w-4 h-4" /> Call Now: +91 95291 55562
               </a>
 
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919529155562"
                 target="_blank"
                 rel="noreferrer"
                 className="py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-lg flex items-center justify-center gap-2 transition-all cursor-pointer"
@@ -86,7 +86,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
                 <MapPin className="w-5 h-5 text-[#E53935] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#111827] text-sm">Main Booking Hub</div>
-                  <div className="text-slate-500 font-medium mt-0.5">Terminal 3 Arrivals Commercial Zone, Indira Gandhi International Airport, New Delhi - 110037</div>
+                  <div className="text-slate-500 font-medium mt-0.5">FF-35, JTM Mall, Jagatpura, Jaipur</div>
                 </div>
               </div>
 
@@ -94,7 +94,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
                 <Phone className="w-5 h-5 text-[#E53935] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#111827] text-sm">24x7 Customer Support Line</div>
-                  <div className="text-slate-500 font-medium mt-0.5">+91 98765 43210 / +91 11 4567 8900</div>
+                  <div className="text-slate-500 font-medium mt-0.5">+91 95291 55562</div>
                 </div>
               </div>
 
@@ -140,7 +140,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
                     <input
                       type="tel"
                       required
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 95291 55562"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-full border border-slate-200 text-xs font-semibold focus:border-[#E53935] focus:ring-2 focus:ring-red-100 outline-hidden bg-white text-[#111827]"

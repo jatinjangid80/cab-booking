@@ -14,11 +14,6 @@ export const WhyChooseUs: React.FC = () => {
       icon: UserCheck
     },
     {
-      title: 'GPS Tracking & Live Booking',
-      desc: 'Real-time vehicle location sharing with emergency SOS safety alert.',
-      icon: Navigation
-    },
-    {
       title: '100% Transparent Pricing',
       desc: 'All-inclusive quotes with zero hidden taxes or surprise extra fees.',
       icon: DollarSign
@@ -27,11 +22,6 @@ export const WhyChooseUs: React.FC = () => {
       title: 'Safe & Sanitized Vehicles',
       desc: 'Deep cleaned, sanitized interiors after every trip with air fresheners.',
       icon: Sparkles
-    },
-    {
-      title: 'Instant Confirmation',
-      desc: 'Instant driver assignment & SMS / WhatsApp confirmation slip.',
-      icon: Zap
     }
   ];
 
@@ -124,14 +114,14 @@ export const WhyChooseUs: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-xs text-slate-500 font-medium">Need immediate booking assistance?</div>
-                  <a href="tel:+919876543210" className="text-base font-black text-[#111827] hover:text-[#E53935]">
-                    Call 24/7: +91 98765 43210
+                  <a href="tel:+919529155562" className="text-base font-black text-[#111827] hover:text-[#E53935]">
+                    Call 24/7: +91 95291 55562
                   </a>
                 </div>
               </div>
 
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/919529155562"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2"

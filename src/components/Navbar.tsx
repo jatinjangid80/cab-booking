@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Car, Phone, MessageSquare, Menu, X, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Car, Phone, MessageSquare, Menu, X, ShieldCheck, ChevronRight, ChevronDown, User, Clock, LogOut } from 'lucide-react';
 import { ActiveTab } from '../types';
 
 interface NavbarProps {
   activeTab: ActiveTab;
   setActiveTab: (tab: ActiveTab) => void;
   onOpenBooking: () => void;
+  onOpenLogin: () => void;
+  isLoggedIn?: boolean;
+  userEmail?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenBooking }) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenBooking, onOpenLogin, isLoggedIn, userEmail }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks: { id: ActiveTab; label: string }[] = [
@@ -34,29 +37,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
       {/* Main Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          
+
           {/* Brand Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            className="flex items-center gap-3 cursor-pointer group text-left shrink-0"
+            className="flex items-center cursor-pointer group text-left shrink-0 py-1"
           >
-            <div className="relative w-11 h-11 rounded-2xl overflow-hidden shadow-xs border border-slate-200 bg-white flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform">
-              <img
-                src="/src/assets/images/cab_booking_logo.png"
-                alt="Cab Booking Logo"
-                className="w-full h-full object-cover rounded-xl"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div>
-              <div className="flex items-center gap-1 font-black text-xl text-[#111827] tracking-tight leading-none">
-                <span>CAB</span>
-                <span className="text-[#E53935]">BOOKING</span>
-              </div>
-              <div className="text-[9px] font-extrabold tracking-widest text-slate-400 uppercase mt-1">
-                Outstation & Taxi
-              </div>
-            </div>
+            <img
+              src="/cab_booking_logo.png"
+              alt="Cab Booking Logo"
+              className="h-14 sm:h-18 w-auto object-contain group-hover:scale-105 transition-transform origin-left"
+              referrerPolicy="no-referrer"
+            />
           </button>
 
           {/* Desktop Nav Links */}
@@ -67,11 +59,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`transition-colors cursor-pointer ${
-                    isActive
-                      ? 'text-[#E53935] font-bold'
-                      : 'hover:text-[#111827]'
-                  }`}
+                  className={`transition-colors cursor-pointer ${isActive
+                    ? 'text-[#E53935] font-bold'
+                    : 'hover:text-[#111827]'
+                    }`}
                 >
                   {link.label}
                 </button>
@@ -81,6 +72,53 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
 
           {/* Action Buttons */}
           <div className="hidden sm:flex items-center space-x-3">
+            {/* Login Button */}
+            {isLoggedIn ? (
+              <div className="relative group">
+                <button
+                  className="flex items-center justify-center w-11 h-11 rounded-full bg-[#F4F6F8] text-[#1E293B] hover:bg-[#E2E8F0] transition-colors cursor-pointer"
+                >
+                  <User className="w-5 h-5" />
+                </button>
+
+                {/* Dropdown Menu */}
+                <div className="absolute right-0 mt-4 w-56 bg-white rounded-xl shadow-2xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right translate-y-2 group-hover:translate-y-0 z-50">
+                  <div className="p-2 space-y-1">
+                    <div className="px-3 py-2.5 border-b border-slate-100 mb-1">
+                      <p className="text-[17px] font-bold text-[#1E293B] tracking-tight">My Account</p>
+                      <p className="text-[14px] text-slate-500 font-medium">{userEmail || 'support@lookmyholidays.in'}</p>
+                    </div>
+                    <button className="w-full text-left px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-red-600 rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer">
+                      <User className="w-4 h-4" />
+                      Profile
+                    </button>
+                    <button className="w-full text-left px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-red-600 rounded-lg transition-colors flex items-center gap-2.5 cursor-pointer">
+                      <Clock className="w-4 h-4" />
+                      Booking History
+                    </button>
+                    <div className="h-px bg-slate-100 my-1"></div>
+                    <button
+                      onClick={() => window.location.reload()}
+                      className="w-full text-left px-3 py-2.5 text-sm text-red-600 hover:bg-red-50 rounded-lg transition-colors flex items-center gap-2.5 font-bold cursor-pointer"
+                    >
+                      <LogOut className="w-4 h-4" />
+                      Log out
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <button
+                onClick={onOpenLogin}
+                className="flex items-center gap-2 text-slate-700 font-bold px-4 py-2 hover:text-red-600 transition-colors cursor-pointer text-sm"
+              >
+                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+                  <User className="w-4 h-4 text-slate-500" />
+                </div>
+                Sign In
+              </button>
+            )}
+
             {/* Book Now Button */}
             <button
               onClick={onOpenBooking}
@@ -119,11 +157,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${
-                  activeTab === link.id
-                    ? 'bg-red-50 text-red-600 font-bold'
-                    : 'text-gray-700 hover:bg-gray-50'
-                }`}
+                className={`text-left px-3 py-2.5 rounded-lg text-sm font-semibold ${activeTab === link.id
+                  ? 'bg-red-50 text-red-600 font-bold'
+                  : 'text-gray-700 hover:bg-gray-50'
+                  }`}
               >
                 {link.label}
               </button>
@@ -144,10 +181,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab, onOpenB
           </div>
 
           <div className="pt-3 border-t border-gray-100 flex justify-between text-xs text-gray-500 font-medium">
-            <a href="tel:+919876543210" className="flex items-center gap-1 text-gray-700">
-              <Phone className="w-3.5 h-3.5 text-red-600" /> +91 98765 43210
+            <a href="tel:+919529155562" className="flex items-center gap-1 text-gray-700">
+              <Phone className="w-3.5 h-3.5 text-red-600" /> +91 95291 55562
             </a>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="flex items-center gap-1 text-emerald-600">
+            <a href="https://wa.me/919529155562" target="_blank" rel="noreferrer" className="flex items-center gap-1 text-emerald-600">
               <MessageSquare className="w-3.5 h-3.5" /> WhatsApp Support
             </a>
           </div>

@@ -79,7 +79,6 @@ export const BrowseServices: React.FC<BrowseServicesProps> = ({ onOpenBookingWit
                     </p>
                   </div>
 
-                  {/* Book Button */}
                   <button
                     onClick={() => {
                       onOpenBookingWithDetails({
@@ -88,7 +87,7 @@ export const BrowseServices: React.FC<BrowseServicesProps> = ({ onOpenBookingWit
                     }}
                     className="w-full py-2.5 px-3 rounded-xl bg-slate-50 group-hover:bg-[#111827] text-[#111827] group-hover:text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                   >
-                    <span>Book {service.title}</span>
+                    <span>{service.buttonText || `Book ${service.title}`}</span>
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>

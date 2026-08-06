@@ -30,13 +30,6 @@ export const HowBookingWorks: React.FC<HowBookingWorksProps> = ({ onOpenBooking 
     },
     {
       step: 'Step 4',
-      title: 'Driver Assigned',
-      desc: 'Get driver name, phone number, vehicle plate, and live GPS link via SMS & WhatsApp.',
-      icon: UserCheck,
-      color: 'bg-amber-500/10 text-amber-400 border-amber-500/30'
-    },
-    {
-      step: 'Step 5',
       title: 'Enjoy Your Journey',
       desc: 'Relax in sanitized AC comfort while your professional chauffeur handles highway traffic.',
       icon: Smile,
@@ -54,7 +47,7 @@ export const HowBookingWorks: React.FC<HowBookingWorksProps> = ({ onOpenBooking 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-[#E53935] font-bold text-xs uppercase tracking-wider bg-red-500/10 px-3.5 py-1 rounded-full border border-red-500/20 inline-block">
-            Simple 5-Step Process
+            Simple 4-Step Process
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
             How Taxi Booking Works
@@ -65,7 +58,7 @@ export const HowBookingWorks: React.FC<HowBookingWorksProps> = ({ onOpenBooking 
         </div>
 
         {/* Timeline Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
           
           {steps.map((item, index) => {
             const Icon = item.icon;

@@ -49,13 +49,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
       {/* Decorative Background Shapes */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-slate-200/50 rounded-full blur-3xl pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column: Heading & Booking Form */}
           <div className="lg:col-span-7 space-y-6">
-            
+
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-100 text-[#E53935] text-xs font-bold uppercase tracking-wider shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#E53935] animate-pulse" />
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
 
             {/* Interactive Search Card */}
             <div className="bg-white/90 backdrop-blur-xl border border-white p-6 rounded-3xl shadow-2xl shadow-indigo-900/10 transition-all">
-              
+
               {/* Trip Type Selector Tabs */}
               <div className="flex items-center gap-2 mb-5 p-1 bg-slate-100 rounded-2xl max-w-md">
                 {(['one-way', 'round-trip', 'local'] as TripType[]).map((type) => (
@@ -83,11 +83,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
                     key={type}
                     type="button"
                     onClick={() => setTripType(type)}
-                    className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-bold capitalize transition-all cursor-pointer ${
-                      tripType === type
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-bold capitalize transition-all cursor-pointer ${tripType === type
                         ? 'bg-[#E53935] text-white shadow-md shadow-red-500/20'
                         : 'text-slate-600 hover:text-[#111827]'
-                    }`}
+                      }`}
                   >
                     {type === 'one-way' && 'One Way'}
                     {type === 'round-trip' && 'Round Trip'}
@@ -98,10 +97,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
 
               {/* Booking Inputs Form */}
               <form onSubmit={handleSearchSubmit} className="space-y-4">
-                
+
                 {/* Pickup & Drop Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-11 gap-3 items-center relative">
-                  
+
                   {/* Pickup Input */}
                   <div className="md:col-span-5 relative">
                     <label className="block text-[10px] uppercase font-bold text-slate-400 mb-1 flex items-center gap-1">
@@ -118,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
                       className="w-full px-4 py-3 rounded-xl border-none bg-slate-50 text-sm font-semibold text-[#111827] focus:ring-2 focus:ring-red-500/20 outline-hidden transition-all"
                       required
                     />
-                    
+
                     {/* Auto Suggestions Dropdown */}
                     {showPickupSuggestions && (
                       <div className="absolute top-full left-0 right-0 mt-1 bg-white rounded-2xl shadow-xl border border-slate-100 z-30 max-h-48 overflow-y-auto">
@@ -270,22 +269,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
 
           {/* Right Column: Hero Visual & Floating Highlights */}
           <div className="lg:col-span-5 relative">
-            
+
             {/* Main Luxury Car Showcase Card */}
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              
+
               <div className="relative rounded-[40px] overflow-hidden shadow-2xl border-8 border-white bg-[#111827] group rotate-2 hover:rotate-0 transition-transform duration-500">
                 <img
                   src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800"
                   alt="Yatra Cabs Luxury Fleet"
                   className="w-full h-[380px] sm:h-[420px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
-                
+
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111827]/90 via-[#111827]/30 to-transparent" />
-                
+
                 {/* Overlay Details */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white space-y-2">
+                <div className="absolute bottom-0 left-0 right-0 p-6 pb-20 text-white space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="px-3 py-1 rounded-full bg-[#E53935] text-[10px] font-black tracking-wider uppercase">
                       Featured Outstation Vehicle
@@ -294,7 +293,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
                       <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" /> 4.9 / 5.0
                     </div>
                   </div>
-                  <h3 className="text-xl font-extrabold text-white">Toyota Innova Crysta & Sedans</h3>
+                  <h3 className="text-xl font-extrabold text-white">Vintage Car</h3>
                   <p className="text-xs text-slate-300 font-medium">
                     Supreme legroom, captain recliners, dual AC vents & luggage space.
                   </p>
@@ -302,7 +301,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
               </div>
 
               {/* Floating Badge: Stats Pill */}
-              <div className="absolute -bottom-4 -left-6 bg-[#111827] text-white p-5 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-800">
+              <div className="absolute -bottom-4 -left-6 bg-[#111827] text-white p-5 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-800 animate-float">
                 <div className="text-center border-r border-slate-700 pr-4">
                   <p className="text-2xl font-bold">500+</p>
                   <p className="text-[10px] uppercase text-slate-400 tracking-widest font-bold">Drivers</p>
