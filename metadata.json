@@ -1,0 +1,6 @@
+{
+  "name": "Yatra Cabs",
+  "description": "Premium taxi and car rental service booking platform across India with live fare calculation, fleet browser, and instant booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
