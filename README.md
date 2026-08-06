@@ -1,20 +1,56 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Cab Booking Platform
 
-# Run and deploy your AI Studio app
+A modern, responsive, and intuitive web application for booking local taxis and outstation cabs. 
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/f6c735fd-2f5a-4dca-ac6f-8ce6fac66cda
+- **Responsive Design**: fully functional on mobile, tablet, and desktop devices.
+- **Easy Booking Flow**: select pick-up, drop-off, date, and vehicle type seamlessly.
+- **Fleet Showcase**: Browse various cab options (Hatchback, Sedan, SUV, etc.).
+- **Live Destination Ideas**: Get travel inspiration for popular outstation routes.
+- **Modern UI**: Built with React, Tailwind CSS, and Lucide icons for a premium experience.
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Language**: TypeScript
 
+## Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Follow these instructions to run the project locally on your machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/jatinjangid80/cab-booking.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd cab-booking
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the App
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:3000` (or `http://localhost:5173` depending on your environment).
+
+## Credits
+
+Designed and deployed by Jatin Jangid.
