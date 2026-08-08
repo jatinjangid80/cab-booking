@@ -3,13 +3,13 @@ export type TripType = 'one-way' | 'round-trip' | 'local' | 'airport-transfer';
 export interface Vehicle {
   id: string;
   name: string;
-  category: 'Sedan' | 'SUV' | 'Innova Crysta' | 'Luxury Sedan' | 'Luxury SUV' | 'Tempo Traveller' | 'Electric Taxi';
+  category: 'Sedan' | 'SUV' | 'SUV/MUV' | 'Luxury Sedan' | 'Luxury SUV' | 'Tempo Traveller';
   image: string;
   pricePerKm: number;
   baseFare: number;
-  seats: number;
-  bags: number;
-  fuelType: 'Diesel' | 'Petrol' | 'EV' | 'CNG';
+  seats: number | string;
+  bags: number | string;
+  fuelType: string;
   ac: boolean;
   features: string[];
   popular?: boolean;

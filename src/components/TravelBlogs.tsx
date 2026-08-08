@@ -12,7 +12,7 @@ export const TravelBlogs: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-[#E53935] font-bold text-xs uppercase tracking-wider bg-red-50 px-3.5 py-1 rounded-full border border-red-100 inline-block">
+          <span className="text-[#f97316] font-bold text-xs uppercase tracking-wider bg-orange-50 px-3.5 py-1 rounded-full border border-orange-100 inline-block">
             Road Trip Stories & Guides
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
@@ -22,64 +22,65 @@ export const TravelBlogs: React.FC = () => {
             Expert highway itineraries, outstation travel tips, and route guides curated for Indian road trips.
           </p>
         </div>
+      </div>
 
-        {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {BLOG_POSTS.map((post) => (
-            <div
-              key={post.id}
-              className="group bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-100 transition-all duration-300 overflow-hidden flex flex-col justify-between"
-            >
-              {/* Image Banner */}
-              <div className="relative h-48 overflow-hidden bg-slate-900">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#E53935] text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">
-                  {post.category}
-                </span>
-              </div>
-
-              {/* Body */}
-              <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3 text-xs text-slate-400 font-medium">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-[#E53935]" />
-                      {post.date}
-                    </span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-slate-400" />
-                      {post.readTime}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-[#111827] group-hover:text-[#E53935] transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed font-medium">
-                    {post.excerpt}
-                  </p>
+      {/* Blog Carousel - Full Width */}
+        <div className="relative overflow-x-auto sm:overflow-hidden group pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 hide-scrollbar">
+          <div className="flex gap-8 w-max animate-infinite-scroll group-hover:[animation-play-state:paused]">
+            {[...BLOG_POSTS, ...BLOG_POSTS].map((post, idx) => (
+              <div
+                key={`${post.id}-${idx}`}
+                className="w-[85vw] sm:w-[380px] shrink-0 bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 overflow-hidden flex flex-col justify-between group/card"
+              >
+                {/* Image Banner */}
+                <div className="relative h-48 overflow-hidden bg-slate-900">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover object-center group-hover/card:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#f97316] text-white text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                    {post.category}
+                  </span>
                 </div>
 
-                <button
-                  onClick={() => setSelectedPost(post)}
-                  className="pt-3 border-t border-slate-100 text-[#E53935] font-bold text-xs flex items-center gap-1 hover:gap-2 transition-all cursor-pointer"
-                >
-                  <span>Read Article</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
+                {/* Body */}
+                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-3 text-xs text-slate-400 font-medium">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5 text-[#f97316]" />
+                        {post.date}
+                      </span>
+                      <span>•</span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3.5 h-3.5 text-slate-400" />
+                        {post.readTime}
+                      </span>
+                    </div>
 
-            </div>
-          ))}
+                    <h3 className="text-lg font-bold text-[#111827] group-hover/card:text-[#f97316] transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed font-medium">
+                      {post.excerpt}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => setSelectedPost(post)}
+                    className="pt-3 border-t border-slate-100 text-[#f97316] font-bold text-xs flex items-center gap-1 hover:gap-2 transition-all cursor-pointer"
+                  >
+                    <span>Read Article</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-      </div>
 
       {/* Article Detail Modal */}
       {selectedPost && (
@@ -93,7 +94,7 @@ export const TravelBlogs: React.FC = () => {
               <X className="w-5 h-5" />
             </button>
 
-            <span className="px-3 py-1 rounded-full bg-red-50 text-[#E53935] text-xs font-bold border border-red-100 inline-block">
+            <span className="px-3 py-1 rounded-full bg-orange-50 text-[#f97316] text-xs font-bold border border-orange-100 inline-block">
               {selectedPost.category}
             </span>
 
@@ -103,7 +104,7 @@ export const TravelBlogs: React.FC = () => {
 
             <div className="flex items-center gap-4 text-xs text-slate-500 border-b border-slate-100 pb-4">
               <span className="flex items-center gap-1 font-semibold text-slate-700">
-                <User className="w-3.5 h-3.5 text-[#E53935]" /> {selectedPost.author}
+                <User className="w-3.5 h-3.5 text-[#f97316]" /> {selectedPost.author}
               </span>
               <span>•</span>
               <span>{selectedPost.date}</span>

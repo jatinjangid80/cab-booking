@@ -9,7 +9,7 @@ export const DriverTeam: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <span className="text-[#E53935] font-bold text-xs uppercase tracking-wider bg-red-50 px-3.5 py-1 rounded-full border border-red-100 inline-block">
+          <span className="text-[#f97316] font-bold text-xs uppercase tracking-wider bg-orange-50 px-3.5 py-1 rounded-full border border-orange-100 inline-block">
             Professional Chauffeurs
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
@@ -25,14 +25,14 @@ export const DriverTeam: React.FC = () => {
           {DRIVERS.map((driver) => (
             <div
               key={driver.id}
-              className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-100 transition-all duration-300 p-6 flex flex-col justify-between space-y-4 text-center group"
+              className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl hover:border-orange-100 transition-all duration-300 p-6 flex flex-col justify-between space-y-4 text-center group"
             >
               {/* Photo & Verified Badge */}
               <div className="relative mx-auto">
                 <img
                   src={driver.photo}
                   alt={driver.name}
-                  className="w-24 h-24 rounded-full object-cover mx-auto border-4 border-red-50 group-hover:border-[#E53935] transition-colors shadow-md"
+                  className="w-24 h-24 rounded-full object-cover mx-auto border-4 border-orange-50 group-hover:border-[#f97316] transition-colors shadow-md"
                 />
                 {driver.verified && (
                   <div
@@ -46,7 +46,7 @@ export const DriverTeam: React.FC = () => {
 
               {/* Driver Info */}
               <div className="space-y-1">
-                <h3 className="text-base font-bold text-[#111827] group-hover:text-[#E53935] transition-colors">
+                <h3 className="text-base font-bold text-[#111827] group-hover:text-[#f97316] transition-colors">
                   {driver.name}
                 </h3>
                 <div className="flex items-center justify-center gap-1 text-xs font-bold text-amber-500">
@@ -60,21 +60,21 @@ export const DriverTeam: React.FC = () => {
               <div className="bg-slate-50 rounded-2xl p-3 text-left space-y-2 text-xs text-slate-600 border border-slate-100">
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1 font-semibold text-slate-700">
-                    <Award className="w-3.5 h-3.5 text-[#E53935]" /> Experience
+                    <Award className="w-3.5 h-3.5 text-[#f97316]" /> Experience
                   </span>
                   <span className="font-bold text-[#111827]">{driver.experienceYears} Years</span>
                 </div>
                 
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1 font-semibold text-slate-700">
-                    <Car className="w-3.5 h-3.5 text-[#E53935]" /> Vehicle
+                    <Car className="w-3.5 h-3.5 text-[#f97316]" /> Vehicle
                   </span>
                   <span className="font-bold text-[#111827] truncate max-w-[110px]">{driver.carAssigned}</span>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <span className="flex items-center gap-1 font-semibold text-slate-700">
-                    <Globe className="w-3.5 h-3.5 text-[#E53935]" /> Languages
+                    <Globe className="w-3.5 h-3.5 text-[#f97316]" /> Languages
                   </span>
                   <span className="font-bold text-[#111827] truncate max-w-[110px]">{driver.languages.join(', ')}</span>
                 </div>

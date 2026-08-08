@@ -8,3 +8,83 @@
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
+
+
+@theme {
+  --animate-infinite-scroll: infinite-scroll 45s linear infinite;
+}
+
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 1rem)); } /* -50% of total width (which is 2x lists) minus half the gap */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-infinite-scroll {
+    animation: none;
+  }
+}
+
+
+@theme {
+  --animate-slide-in-right: slide-in-right 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  --animate-slide-in-left: slide-in-left 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  --animate-fade-in-up: fade-in-up 0.5s ease-out forwards;
+  --animate-star-pop: star-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  --animate-scale-fade: scale-fade 0.5s ease-out forwards;
+  --animate-hero-float: hero-float 4s ease-in-out infinite;
+  --animate-hero-fade-up: hero-fade-up 0.8s ease-out forwards;
+}
+
+@keyframes slide-in-right {
+  0% { transform: translateX(30px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-in-left {
+  0% { transform: translateX(-30px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  0% { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes hero-fade-up {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(-4px); }
+  50% { transform: translateY(0); }
+}
+
+@keyframes star-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scale-fade {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-in-right,
+  .animate-slide-in-left,
+  .animate-fade-in-up,
+  .animate-hero-fade-up,
+  .animate-star-pop,
+  .animate-scale-fade {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes fill-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}

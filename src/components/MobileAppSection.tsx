@@ -5,19 +5,19 @@ export const MobileAppSection: React.FC = () => {
   return (
     <section className="py-16 sm:py-24 bg-[#111827] text-white relative overflow-hidden border-b border-slate-800">
       {/* Decorative Glow */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#E53935]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-[#f97316]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Text & Features */}
           <div className="lg:col-span-7 space-y-6">
-            <span className="text-[#E53935] font-bold text-xs uppercase tracking-wider bg-red-500/10 px-3.5 py-1.5 rounded-full border border-red-500/20 inline-block">
+            <span className="text-[#f97316] font-bold text-xs uppercase tracking-wider bg-orange-500/10 px-3.5 py-1.5 rounded-full border border-orange-500/20 inline-block">
               Yatra Mobile App
             </span>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-              Manage Rides on the Go with <span className="text-[#E53935]">Yatra App</span>
+              Manage Rides on the Go with <span className="text-[#f97316]">Yatra App</span>
             </h2>
 
             <p className="text-base text-slate-300 max-w-xl leading-relaxed font-medium">
@@ -28,7 +28,7 @@ export const MobileAppSection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               
               <div className="p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-start gap-3">
-                <div className="p-2.5 rounded-xl bg-red-500/20 text-[#E53935]">
+                <div className="p-2.5 rounded-xl bg-orange-500/20 text-[#f97316]">
                   <Navigation className="w-5 h-5" />
                 </div>
                 <div>
@@ -76,7 +76,7 @@ export const MobileAppSection: React.FC = () => {
                 onClick={() => alert('LookMyHolidays Android app download link will be sent to your mobile phone!')}
                 className="px-5 py-3 rounded-full bg-white text-[#111827] font-bold text-sm shadow-xl hover:bg-slate-100 transition-all flex items-center gap-3 cursor-pointer"
               >
-                <div className="w-7 h-7 bg-[#E53935] rounded-lg text-white flex items-center justify-center">
+                <div className="w-7 h-7 bg-[#f97316] rounded-lg text-white flex items-center justify-center">
                   <Download className="w-4 h-4" />
                 </div>
                 <div className="text-left">
@@ -118,14 +118,14 @@ export const MobileAppSection: React.FC = () => {
                 
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-red-500">LOOKMYHOLIDAYS</span>
+                    <span className="font-bold text-orange-500">LOOKMYHOLIDAYS</span>
                     <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">GPS ACTIVE</span>
                   </div>
 
                   {/* Driver Card Preview in App */}
                   <div className="bg-gray-800 p-3 rounded-2xl space-y-2 border border-gray-700">
                     <div className="flex items-center gap-2">
-                      <div className="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center font-bold text-xs">
+                      <div className="w-9 h-9 rounded-full bg-orange-600 flex items-center justify-center font-bold text-xs">
                         RK
                       </div>
                       <div>
@@ -143,7 +143,7 @@ export const MobileAppSection: React.FC = () => {
                   <div className="h-40 rounded-2xl bg-slate-800 relative overflow-hidden flex items-center justify-center border border-gray-700">
                     <div className="absolute inset-0 opacity-30 bg-[radial-gradient(#e53935_1px,transparent_1px)] [background-size:12px_12px]" />
                     <div className="relative z-10 text-center space-y-1">
-                      <div className="w-10 h-10 rounded-full bg-red-600/80 text-white flex items-center justify-center mx-auto animate-pulse">
+                      <div className="w-10 h-10 rounded-full bg-orange-600/80 text-white flex items-center justify-center mx-auto animate-pulse">
                         <Navigation className="w-5 h-5" />
                       </div>
                       <span className="text-[10px] font-bold tracking-wider text-gray-300">LIVE ROUTE NAVIGATION</span>
@@ -151,7 +151,7 @@ export const MobileAppSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-red-600 text-center py-2.5 rounded-xl font-bold text-xs text-white">
+                <div className="bg-orange-600 text-center py-2.5 rounded-xl font-bold text-xs text-white">
                   SOS Panic Button Enabled
                 </div>
 

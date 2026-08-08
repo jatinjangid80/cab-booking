@@ -45,13 +45,13 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
 
             <div className="space-y-1.5 text-xs text-slate-400 font-medium">
               <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#E53935]" /> +91 95291 55562 (24x7 Support)
+                <Phone className="w-3.5 h-3.5 text-[#f97316]" /> +91 95291 55562 (24x7 Support)
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#E53935]" /> resv@lookmyholidays.in
+                <Mail className="w-3.5 h-3.5 text-[#f97316]" /> booking@lookmyholidays.in
               </div>
               <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#E53935]" /> FF-35, JTM Mall, Jagatpura, Jaipur
+                <MapPin className="w-3.5 h-3.5 text-[#f97316]" /> FF-35, JTM Mall, Jagatpura, Jaipur
               </div>
             </div>
           </div>
@@ -60,12 +60,12 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">Our Services</h4>
             <ul className="space-y-2 text-xs font-medium text-slate-400">
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Airport Transfers</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">One Way Outstation</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Round Trip Cabs</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Hourly Local Rentals</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">VIP Corporate Travel</button></li>
-              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#E53935] transition-colors cursor-pointer">Wedding Car Rental</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#f97316] transition-colors cursor-pointer">Airport Transfers</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#f97316] transition-colors cursor-pointer">One Way Outstation</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#f97316] transition-colors cursor-pointer">Round Trip Cabs</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#f97316] transition-colors cursor-pointer">Hourly Local Rentals</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#f97316] transition-colors cursor-pointer">VIP Corporate Travel</button></li>
+              <li><button onClick={() => { setActiveTab('services'); window.scrollTo(0, 0); }} className="hover:text-[#f97316] transition-colors cursor-pointer">Wedding Car Rental</button></li>
             </ul>
           </div>
 
@@ -73,12 +73,12 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">Popular Routes</h4>
             <ul className="space-y-2 text-xs font-medium text-slate-400">
-              <li><button onClick={onOpenBooking} className="hover:text-[#E53935] transition-colors cursor-pointer">Delhi to Jaipur Cab</button></li>
-              <li><button onClick={onOpenBooking} className="hover:text-[#E53935] transition-colors cursor-pointer">Delhi to Agra Taxi</button></li>
-              <li><button onClick={onOpenBooking} className="hover:text-[#E53935] transition-colors cursor-pointer">Jaipur to Udaipur Taxi</button></li>
-              <li><button onClick={onOpenBooking} className="hover:text-[#E53935] transition-colors cursor-pointer">Mumbai to Pune Cab</button></li>
-              <li><button onClick={onOpenBooking} className="hover:text-[#E53935] transition-colors cursor-pointer">Delhi to Shimla / Manali</button></li>
-              <li><button onClick={onOpenBooking} className="hover:text-[#E53935] transition-colors cursor-pointer">Bangalore to Mysore Cab</button></li>
+              <li><button onClick={onOpenBooking} className="hover:text-[#f97316] transition-colors cursor-pointer">Delhi to Jaipur Cab</button></li>
+              <li><button onClick={onOpenBooking} className="hover:text-[#f97316] transition-colors cursor-pointer">Delhi to Agra Taxi</button></li>
+              <li><button onClick={onOpenBooking} className="hover:text-[#f97316] transition-colors cursor-pointer">Jaipur to Udaipur Taxi</button></li>
+              <li><button onClick={onOpenBooking} className="hover:text-[#f97316] transition-colors cursor-pointer">Mumbai to Pune Cab</button></li>
+              <li><button onClick={onOpenBooking} className="hover:text-[#f97316] transition-colors cursor-pointer">Delhi to Shimla / Manali</button></li>
+              <li><button onClick={onOpenBooking} className="hover:text-[#f97316] transition-colors cursor-pointer">Bangalore to Mysore Cab</button></li>
             </ul>
           </div>
 
@@ -100,11 +100,11 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
                     placeholder="Enter email address..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white focus:border-[#E53935] outline-hidden pr-10"
+                    className="w-full px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-white focus:border-[#f97316] outline-hidden pr-10"
                   />
                   <button
                     type="submit"
-                    className="absolute right-1.5 top-1 p-1.5 rounded-full bg-[#E53935] text-white hover:bg-red-600 transition-colors cursor-pointer"
+                    className="absolute right-1.5 top-1 p-1.5 rounded-full bg-[#f97316] text-white hover:bg-orange-600 transition-colors cursor-pointer"
                   >
                     <Send className="w-3.5 h-3.5" />
                   </button>

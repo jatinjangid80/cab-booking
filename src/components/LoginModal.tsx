@@ -42,7 +42,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
           else onClose();
         }}>
           {/* Email Input */}
-          <div className="flex items-center border border-slate-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-red-500/20 focus-within:border-red-500 transition-all bg-white">
+          <div className="flex items-center border border-slate-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-orange-500/20 focus-within:border-orange-500 transition-all bg-white">
             <input
               type="email"
               required
@@ -54,7 +54,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
           </div>
 
           {/* Password Input */}
-          <div className="flex items-center border border-slate-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-red-500/20 focus-within:border-red-500 transition-all bg-white">
+          <div className="flex items-center border border-slate-300 rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-orange-500/20 focus-within:border-orange-500 transition-all bg-white">
             <input
               type="password"
               required
@@ -67,7 +67,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
 
           <button
             type="submit"
-            className="w-full bg-[#E53935] hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md shadow-red-200 cursor-pointer text-[15px] tracking-wide"
+            className="w-full bg-[#f97316] hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md shadow-red-200 cursor-pointer text-[15px] tracking-wide"
           >
             LOGIN
           </button>
@@ -91,7 +91,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose, onLogin
 
         <div className="mt-8 text-center">
           <p className="text-sm text-slate-600 font-medium">
-            Don't have an account? <a href="#" className="text-red-600 hover:text-red-700 font-bold hover:underline transition-colors ml-1">Sign Up</a>
+            Don't have an account? <a href="#" className="text-orange-600 hover:text-red-700 font-bold hover:underline transition-colors ml-1">Sign Up</a>
           </p>
         </div>
 

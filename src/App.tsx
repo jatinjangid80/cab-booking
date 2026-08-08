@@ -42,8 +42,13 @@ export default function App() {
     setBookingsList(prev => [newBooking, ...prev]);
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setLoggedInEmail('');
+  };
+
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-red-500 selection:text-white flex flex-col justify-between">
+    <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-orange-500 selection:text-white flex flex-col justify-between">
       
       {/* Sticky Header */}
       <div className="print:hidden">
@@ -54,6 +59,7 @@ export default function App() {
           onOpenLogin={() => setIsLoginOpen(true)}
           isLoggedIn={isLoggedIn}
           userEmail={loggedInEmail}
+          onLogout={handleLogout}
         />
       </div>
 
@@ -84,6 +90,11 @@ export default function App() {
             />
             <FeaturedDestinations
               onOpenBookingWithDetails={(details) => handleOpenBooking(details)}
+              limit={3}
+              onViewAll={() => {
+                setActiveTab('destinations');
+                window.scrollTo(0, 0);
+              }}
             />
             <CustomerReviews />
             <TravelBlogs />
@@ -114,6 +125,10 @@ export default function App() {
         {activeTab === 'destinations' && (
           <FeaturedDestinations
             onOpenBookingWithDetails={(details) => handleOpenBooking(details)}
+            onBackToHome={() => {
+              setActiveTab('home');
+              window.scrollTo(0, 0);
+            }}
           />
         )}
 
@@ -164,7 +179,7 @@ export default function App() {
         onClose={() => setIsLoginOpen(false)} 
         onLoginSuccess={(email) => {
           setIsLoggedIn(true);
-          setLoggedInEmail(email || 'support@lookmyholidays.in');
+          setLoggedInEmail(email || 'booking@lookmyholidays.in');
           setIsLoginOpen(false);
         }}
       />
