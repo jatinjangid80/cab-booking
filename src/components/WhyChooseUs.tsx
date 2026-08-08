@@ -45,7 +45,7 @@ export const WhyChooseUs: React.FC = () => {
               </div>
 
               {/* Floating Badge overlay */}
-              <div className="absolute -bottom-6 -right-4 bg-[#111827] text-white rounded-2xl p-5 shadow-2xl max-w-xs border border-slate-800 hidden sm:block">
+              <div className="absolute -bottom-6 -right-4 bg-[#111827] text-white rounded-2xl p-5 shadow-2xl max-w-xs border border-slate-800 hidden sm:block animate-float">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-[#E53935] text-white flex items-center justify-center font-bold shrink-0">
                     <ShieldCheck className="w-6 h-6" />
@@ -58,7 +58,7 @@ export const WhyChooseUs: React.FC = () => {
               </div>
 
               {/* Secondary decorative accent */}
-              <div className="absolute -top-6 -left-4 bg-[#E53935] text-white rounded-2xl p-4 shadow-xl text-center">
+              <div className="absolute -top-6 -left-4 bg-[#E53935] text-white rounded-2xl p-4 shadow-xl text-center animate-float" style={{ animationDelay: '1.5s' }}>
                 <div className="text-2xl font-extrabold">4.95 ★</div>
                 <div className="text-[10px] uppercase tracking-wider font-bold text-red-100">User Rating</div>
               </div>
