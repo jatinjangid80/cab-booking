@@ -10,6 +10,7 @@ interface BookingModalProps {
   initialDetails?: Partial<BookingDetails>;
   initialVehicle?: Vehicle | null;
   onBookingConfirmed: (newBooking: BookingDetails) => void;
+  bookingCount?: number;
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({
@@ -17,7 +18,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   onClose,
   initialDetails,
   initialVehicle,
-  onBookingConfirmed
+  onBookingConfirmed,
+  bookingCount = 0
 }) => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [pickupLocation, setPickupLocation] = useState(initialDetails?.pickupLocation || 'Delhi IGI Airport');
@@ -32,19 +34,27 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [tripType, setTripType] = useState<TripType>(initialDetails?.tripType || 'one-way');
   const [passengers, setPassengers] = useState(initialDetails?.passengers || 4);
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle>(initialVehicle || VEHICLES[2]); // Default Innova Crysta
-  
+
   // Passenger Form
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
   const [specialInstructions, setSpecialInstructions] = useState(initialDetails?.specialInstructions || '');
-  
+  const [companyName, setCompanyName] = useState('');
+  const [gstNo, setGstNo] = useState('');
+  const [arrivalDate, setArrivalDate] = useState('');
+  const [departureDate, setDepartureDate] = useState('');
+
   // Confirmed details
   const [confirmedBooking, setConfirmedBooking] = useState<BookingDetails | null>(null);
   const [copied, setCopied] = useState(false);
 
   // Sync initial parameters when opened
   useEffect(() => {
+    if (isOpen) {
+      setStep(1);
+      setConfirmedBooking(null);
+    }
     if (initialDetails?.pickupLocation) setPickupLocation(initialDetails.pickupLocation);
     if (initialDetails?.dropLocation) setDropLocation(initialDetails.dropLocation);
     if (initialDetails?.pickupDate) setPickupDate(initialDetails.pickupDate);
@@ -54,6 +64,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   }, [initialDetails, initialVehicle, isOpen]);
 
   if (!isOpen) return null;
+
+  const todayLocal = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split('T')[0];
+
+  const getNextDay = (dateStr: string) => {
+    if (!dateStr) return todayLocal;
+    const date = new Date(dateStr);
+    date.setDate(date.getDate() + 1);
+    return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().split('T')[0];
+  };
+
+  const tomorrowLocal = getNextDay(todayLocal);
 
   // Calculate estimated distance and fare
   const estimatedKm = tripType === 'local' ? 80 : 280; // realistic mock estimate
@@ -66,7 +87,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const handleFinalConfirm = (e: React.FormEvent) => {
     e.preventDefault();
-    const newBookingId = `YATRA-${Math.floor(1000 + Math.random() * 9000)}`;
+    const seqNumber = String(bookingCount + 1).padStart(3, '0');
+    const newBookingId = `LMH-${seqNumber}`;
     const newBooking: BookingDetails = {
       id: newBookingId,
       pickupLocation,
@@ -80,6 +102,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       customerName,
       customerPhone,
       customerEmail,
+      companyName,
+      gstNo,
       specialInstructions,
       status: 'Confirmed',
       totalFare,
@@ -114,17 +138,24 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in">
       <div className="bg-white rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-y-auto p-5 sm:p-8 relative shadow-2xl border border-gray-100 my-auto">
-        
+
         {/* Close Modal Button */}
         <button
-          onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors z-20 cursor-pointer"
+          type="button"
+          onClick={() => {
+            if (step === 3) {
+              window.location.href = '/';
+            } else {
+              onClose();
+            }
+          }}
+          className="absolute top-5 right-5 p-2 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors z-20 cursor-pointer print:hidden"
         >
           <X className="w-5 h-5" />
         </button>
 
         {/* Stepper Header Bar */}
-        <div className="mb-6 pb-4 border-b border-gray-100 pr-10">
+        <div className="mb-6 pb-4 border-b border-gray-100 pr-10 print:hidden">
           <div className="flex items-center gap-2 mb-2">
             <span className="px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-black uppercase">
               Step {step} of 3
@@ -153,15 +184,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
 
             {/* Trip Type Tabs */}
-            <div className="flex gap-2 p-1 bg-gray-100 rounded-xl max-w-sm">
-              {(['one-way', 'round-trip', 'local'] as TripType[]).map((t) => (
+            <div className="flex gap-2 p-1 bg-gray-100 rounded-xl max-w-lg overflow-x-auto">
+              {(['one-way', 'round-trip', 'local', 'airport-transfer'] as TripType[]).map((t) => (
                 <button
                   key={t}
                   type="button"
                   onClick={() => setTripType(t)}
-                  className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold capitalize transition-all ${
-                    tripType === t ? 'bg-red-600 text-white shadow-xs' : 'text-gray-700'
-                  }`}
+                  className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold capitalize transition-all whitespace-nowrap ${tripType === t ? 'bg-red-600 text-white shadow-xs' : 'text-gray-700 hover:bg-gray-200/50'
+                    }`}
                 >
                   {t.replace('-', ' ')}
                 </button>
@@ -216,7 +246,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   type="date"
                   required
                   value={pickupDate}
-                  min={new Date().toISOString().split('T')[0]}
+                  min={tomorrowLocal}
                   onChange={(e) => setPickupDate(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold bg-gray-50/50"
                 />
@@ -236,6 +266,20 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </div>
             </div>
 
+            {/* Additional Requirements */}
+            <div>
+              <label className="block text-xs font-bold text-gray-700 mb-1">
+                Additional Requirements
+              </label>
+              <textarea
+                rows={2}
+                placeholder="e.g. Flight/Train Details, Child Seat, Extra Luggage..."
+                value={specialInstructions}
+                onChange={(e) => setSpecialInstructions(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold focus:border-red-500 outline-hidden bg-gray-50/50"
+              />
+            </div>
+
             {/* Vehicle Selector Grid */}
             <div className="space-y-2">
               <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider">
@@ -248,11 +292,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <div
                       key={v.id}
                       onClick={() => setSelectedVehicle(v)}
-                      className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
-                        isSelected
+                      className={`p-3 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${isSelected
                           ? 'border-red-600 bg-red-50/60 shadow-md ring-2 ring-red-200'
                           : 'border-gray-200 hover:border-gray-300 bg-white'
-                      }`}
+                        }`}
                     >
                       <img src={v.image} alt={v.name} className="w-16 h-12 object-cover rounded-xl" />
                       <div className="flex-1 min-w-0">
@@ -358,17 +401,53 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">
-                  Special Instructions / Flight Number / Hotel Address
-                </label>
-                <textarea
-                  rows={2}
-                  placeholder="e.g. Flight arrives IGI T3 at 8:30 AM, need child booster seat..."
-                  value={specialInstructions}
-                  onChange={(e) => setSpecialInstructions(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl border border-gray-200 text-xs font-semibold focus:border-red-500 outline-hidden bg-white"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">Company Name</label>
+                  <input
+                    type="text"
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold focus:border-red-500 outline-hidden bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">Gst No</label>
+                  <input
+                    type="text"
+                    value={gstNo}
+                    onChange={(e) => setGstNo(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold focus:border-red-500 outline-hidden bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">Arrival Date *</label>
+                  <input
+                    type="date"
+                    required
+                    value={arrivalDate}
+                    min={tomorrowLocal}
+                    onChange={(e) => {
+                      setArrivalDate(e.target.value);
+                      // If departure is before or same as new arrival, reset it
+                      if (departureDate && departureDate <= e.target.value) {
+                        setDepartureDate('');
+                      }
+                    }}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold focus:border-red-500 outline-hidden bg-white"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">Departure Date *</label>
+                  <input
+                    type="date"
+                    required
+                    value={departureDate}
+                    min={arrivalDate ? getNextDay(arrivalDate) : tomorrowLocal}
+                    onChange={(e) => setDepartureDate(e.target.value)}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 text-xs font-semibold focus:border-red-500 outline-hidden bg-white"
+                  />
+                </div>
               </div>
             </div>
 
@@ -402,9 +481,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         {/* STEP 3: CONFIRMATION SLIP */}
         {step === 3 && confirmedBooking && (
           <div className="space-y-6 animate-in zoom-in-95 duration-200">
-            
+
             <div className="text-center space-y-2">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner animate-float">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
               <h2 className="text-2xl font-black text-gray-900">Cab Booking Confirmed!</h2>
@@ -420,7 +499,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     {confirmedBooking.id}
                     <button
                       onClick={handleCopyBookingId}
-                      className="p-1 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors"
+                      className="p-1 rounded-md bg-gray-800 hover:bg-gray-700 text-gray-300 transition-colors print:hidden"
                       title="Copy Reference"
                     >
                       {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -468,28 +547,42 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   <span className="text-gray-400 font-normal">Total Fare (All-Inc):</span>
                   <div className="text-lg font-black text-emerald-400">₹{confirmedBooking.totalFare.toLocaleString()}</div>
                 </div>
+
+                {(confirmedBooking.companyName || confirmedBooking.gstNo) && (
+                  <div className="col-span-2 pt-3 border-t border-gray-800">
+                    <span className="text-gray-400 font-normal">Company Details:</span>
+                    {confirmedBooking.companyName && <div className="font-bold text-white">{confirmedBooking.companyName}</div>}
+                    {confirmedBooking.gstNo && <div className="text-gray-400">GST: {confirmedBooking.gstNo}</div>}
+                  </div>
+                )}
+
+                {confirmedBooking.specialInstructions && (
+                  <div className="col-span-2 pt-3 border-t border-gray-800">
+                    <span className="text-gray-400 font-normal">Additional Requirements:</span>
+                    <div className="font-medium text-white italic">"{confirmedBooking.specialInstructions}"</div>
+                  </div>
+                )}
               </div>
 
               <div className="pt-3 border-t border-gray-800 flex items-center justify-between text-[11px] text-gray-400">
                 <span className="flex items-center gap-1">
-                  <Car className="w-3.5 h-3.5 text-red-500" /> Free cancellation up to 6 hours before pickup
+                  <Car className="w-3.5 h-3.5 text-red-500" /> Free cancellation up to 24 hours before pickup
                 </span>
-                <span>Yatra Cabs Verified</span>
+                <span>LookMyHolidays Verified</span>
               </div>
             </div>
 
-            {/* Modal Actions */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-4 print:hidden">
               <button
                 onClick={() => window.print()}
-                className="flex-1 py-3 px-4 rounded-xl border border-gray-200 text-gray-800 font-bold text-xs hover:bg-gray-50"
+                className="flex-1 py-3 px-6 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs transition-all cursor-pointer"
               >
                 Print Confirmation Slip
               </button>
-
               <button
-                onClick={onClose}
-                className="flex-1 py-3 px-6 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs shadow-md shadow-red-200"
+                onClick={() => window.location.href = '/'}
+                className="flex-1 py-3 px-6 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs shadow-lg shadow-red-200 transition-all cursor-pointer"
               >
                 Done & Return Home
               </button>

@@ -46,17 +46,19 @@ export default function App() {
     <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-red-500 selection:text-white flex flex-col justify-between">
       
       {/* Sticky Header */}
-      <Navbar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        onOpenBooking={() => handleOpenBooking()}
-        onOpenLogin={() => setIsLoginOpen(true)}
-        isLoggedIn={isLoggedIn}
-        userEmail={loggedInEmail}
-      />
+      <div className="print:hidden">
+        <Navbar
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          onOpenBooking={() => handleOpenBooking()}
+          onOpenLogin={() => setIsLoginOpen(true)}
+          isLoggedIn={isLoggedIn}
+          userEmail={loggedInEmail}
+        />
+      </div>
 
       {/* Main Page Render */}
-      <main className="flex-1">
+      <main className="flex-1 print:hidden">
         {activeTab === 'home' && (
           <>
             <Hero
@@ -139,10 +141,12 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer
-        setActiveTab={setActiveTab}
-        onOpenBooking={() => handleOpenBooking()}
-      />
+      <div className="print:hidden">
+        <Footer
+          setActiveTab={setActiveTab}
+          onOpenBooking={() => handleOpenBooking()}
+        />
+      </div>
 
       {/* Booking Modal */}
       <BookingModal
@@ -151,6 +155,7 @@ export default function App() {
         initialDetails={bookingDetails}
         initialVehicle={selectedVehicle}
         onBookingConfirmed={handleBookingConfirmed}
+        bookingCount={bookingsList.length}
       />
 
       {/* Login Modal */}

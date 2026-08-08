@@ -6,7 +6,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Maruti Suzuki Dzire',
     category: 'Sedan',
     image: 'https://images.openai.com/static-rsc-4/0_1ptPhxbGbwuuAnjOxNl53xSleFJFsqEBzLryz9LWER9A35l8xxVfFkLHzyFcyToFhuk9zP_Z3Ge8nuY6L8YjP7u5TzRCD1UABPCLV0pJ3v86EOodevr6TFOGz6QuoX2ab3al7BigjRoMpK_g7F46WCVzNI5reTf4V47lNtspWgzLgJ4WJx8yzsn2h_gIXX?purpose=fullsize',
-    pricePerKm: 11,
+    pricePerKm: 12,
     baseFare: 999,
     seats: 4,
     bags: 2,
@@ -134,7 +134,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Toyota Innova Crysta',
     category: 'Innova Crysta',
     image: 'https://images.openai.com/static-rsc-4/D2rsRDCbOx7ST4EvEtcraTMJfIlgzTcio4HYbiRY1vhizsECggVchlZjG6_8vTfyfDkRdPgn4VAhOoxPvo3VcvRIrmexyB39Rb3VKKRwtJNvKTcJqmEKPFdgOU6to2Ex3nrGevAWSXst9r6IZNSVLHkKt7RMXygxdNM6hi-vGcPJUDc3pPNkY4If2vQ1ZSVJ?purpose=fullsize',
-    pricePerKm: 18,
+    pricePerKm: 20,
     baseFare: 2200,
     seats: 7,
     bags: 4,
@@ -246,7 +246,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Standard AC Tempo Traveller',
     category: 'Tempo Traveller',
     image: 'https://images.openai.com/static-rsc-4/-rRasFaYHny73hoWU1wteoTQ5fFoHAusMsGDFlKh6OHpGsO8xDmSIvo4q3gz0MDONQXM-4A9EP_VNHHE28W0lycfZJLQDtnSHPIXoO0W5aYYGpETHsXXWxoBFTN-MiP6ykpnCqYCdnYUbvRMfRwmhtopiqKFsth1CEThbvTyBqJK_3Yvmr4mVmGygwW_IIUL?purpose=fullsize',
-    pricePerKm: 24,
+    pricePerKm: 30,
     baseFare: 3000,
     seats: 12,
     bags: 8,
@@ -278,7 +278,7 @@ export const VEHICLES: Vehicle[] = [
     name: 'Force Urbania',
     category: 'Tempo Traveller',
     image: 'https://images.openai.com/static-rsc-4/0IFHdzcwXSotiUal2EN2dQ3IAToC0H2TzmIGR6x9T_wH4ra6BMGj-_X2dkapPHH8ugQW1ARg7AmEzL6YE-GOQ0dytF68vHFnqecVhKXJ8gItax-AQ_VixSnMSTU4JvLk_IJzCEk-QYxhDl5Xx_oX3jnKa9qhmoQ8LtCQyDpx84dqmcH098CysuW-bVG-7Y1B?purpose=fullsize',
-    pricePerKm: 32,
+    pricePerKm: 35,
     baseFare: 5000,
     seats: 17,
     bags: 10,
@@ -540,7 +540,7 @@ export const REVIEWS: Review[] = [
     author: 'Sunil Varma',
     location: 'Bangalore',
     rating: 5,
-    comment: 'Used Yatra Cabs for midnight IGI Airport transfer to Noida. The driver was waiting at arrivals with a name sign, assisted with heavy luggage, and the booking price was 30% cheaper than airport counters.',
+    comment: 'Used LookMyHolidays for midnight IGI Airport transfer to Noida. The driver was waiting at arrivals with a name sign, assisted with heavy luggage, and the booking price was 30% cheaper than airport counters.',
     date: '1 week ago',
     avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200',
     tripRoute: 'Delhi IGI Airport → Noida'
@@ -550,7 +550,7 @@ export const REVIEWS: Review[] = [
     author: 'Dr. Meenakshi Sundaram',
     location: 'Chennai',
     rating: 5,
-    comment: 'Exceptional one-way cab service from Jaipur to Udaipur. Transparent pricing with no hidden toll surprise. Will definitely use Yatra Cabs for all future India trips!',
+    comment: 'Exceptional one-way cab service from Jaipur to Udaipur. Transparent pricing with no hidden toll surprise. Will definitely use LookMyHolidays for all future India trips!',
     date: '2 weeks ago',
     avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200',
     tripRoute: 'Jaipur → Udaipur One-Way'
@@ -583,7 +583,7 @@ export const BLOG_POSTS: BlogPost[] = [
     id: 'b-2',
     title: 'One-Way Taxi vs Round Trip: How to Save Up to 40% on Outstation Travel',
     excerpt: 'Learn when to choose one-way cabs and how flat per-kilometer rates eliminate unfair return charges on intercity travel.',
-    content: 'Traditionally, taxi operators charged return fares even when passengers only needed travel in one direction. With Yatra Cabs’ transparent one-way network, you pay exclusively for the distance covered from pickup to destination...',
+    content: 'Traditionally, taxi operators charged return fares even when passengers only needed travel in one direction. With LookMyHolidays’ transparent one-way network, you pay exclusively for the distance covered from pickup to destination...',
     date: 'July 24, 2026',
     readTime: '4 min read',
     image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800',
@@ -607,7 +607,7 @@ export const FAQS: FAQItem[] = [
   {
     id: 'f-1',
     category: 'Booking',
-    question: 'How do I book a taxi with Yatra Cabs?',
+    question: 'How do I book a taxi with LookMyHolidays?',
     answer: 'You can easily book online using our instant search widget above, select your preferred vehicle (Sedan, SUV, Innova Crysta, etc.), enter passenger details, and confirm. You can also call our 24/7 hotline at +91 95291 55562 or message us on WhatsApp.'
   },
   {
@@ -619,8 +619,8 @@ export const FAQS: FAQItem[] = [
   {
     id: 'f-3',
     category: 'Cancellation',
-    question: 'What is Yatra Cabs cancellation policy?',
-    answer: 'We offer FREE cancellation up to 6 hours before your scheduled pickup time with 100% refund. Cancellations made within 6 hours of pickup incur nominal processing fees.'
+    question: 'What is LookMyHolidays cancellation policy?',
+    answer: 'We offer FREE cancellation up to 24 hours before your scheduled pickup time with 100% refund. Cancellations made within 24 hours of pickup incur nominal processing fees.'
   },
   {
     id: 'f-4',
@@ -637,7 +637,7 @@ export const FAQS: FAQItem[] = [
   {
     id: 'f-6',
     category: 'Safety',
-    question: 'How does Yatra Cabs guarantee passenger safety?',
+    question: 'How does LookMyHolidays guarantee passenger safety?',
     answer: 'All our drivers undergo police verification, background checks, and regular defensive driving training. Every car is equipped with real-time GPS tracking and SOS emergency panic buttons.'
   }
 ];

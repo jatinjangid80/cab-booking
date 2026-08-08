@@ -1,4 +1,4 @@
-export type TripType = 'one-way' | 'round-trip' | 'local';
+export type TripType = 'one-way' | 'round-trip' | 'local' | 'airport-transfer';
 
 export interface Vehicle {
   id: string;
@@ -95,11 +95,13 @@ export interface BookingDetails {
   customerName: string;
   customerPhone: string;
   customerEmail: string;
+  companyName?: string;
+  gstNo?: string;
   specialInstructions?: string;
   status: 'Pending' | 'Confirmed' | 'Assigned' | 'Completed' | 'Cancelled';
   totalFare: number;
-  estimatedKm: number;
-  createdAt: string;
+  estimatedKm?: number;
+  createdAt?: string;
   assignedDriverId?: string;
 }
 

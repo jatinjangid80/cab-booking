@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
                 <Phone className="w-3.5 h-3.5 text-[#E53935]" /> +91 95291 55562 (24x7 Support)
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#E53935]" /> booking@yatracabs.com
+                <Mail className="w-3.5 h-3.5 text-[#E53935]" /> resv@lookmyholidays.in
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-[#E53935]" /> FF-35, JTM Mall, Jagatpura, Jaipur
@@ -128,9 +128,9 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenBooking }) =
           </div>
 
           <div className="flex items-center gap-4 font-semibold">
-            <button onClick={() => alert('Yatra Cabs Terms & Conditions: All flat-rate fares include GST and permit fees.')} className="hover:text-white transition-colors cursor-pointer">Terms of Service</button>
+            <button onClick={() => alert('LookMyHolidays Terms & Conditions: All flat-rate fares include GST and permit fees.')} className="hover:text-white transition-colors cursor-pointer">Terms of Service</button>
             <span>•</span>
-            <button onClick={() => alert('Yatra Cabs Privacy Policy: Passenger contact data is encrypted and strictly used for trip alerts.')} className="hover:text-white transition-colors cursor-pointer">Privacy Policy</button>
+            <button onClick={() => alert('LookMyHolidays Privacy Policy: Passenger contact data is encrypted and strictly used for trip alerts.')} className="hover:text-white transition-colors cursor-pointer">Privacy Policy</button>
           </div>
         </div>
 

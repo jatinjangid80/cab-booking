@@ -39,7 +39,7 @@ export const WhyChooseUs: React.FC = () => {
               <div className="rounded-[36px] overflow-hidden shadow-2xl border-4 border-white bg-[#111827]">
                 <img
                   src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=900"
-                  alt="Yatra Cabs Professional Driver and Vehicle"
+                  alt="LookMyHolidays Professional Driver and Vehicle"
                   className="w-full h-[450px] object-cover object-center"
                 />
               </div>
@@ -71,7 +71,7 @@ export const WhyChooseUs: React.FC = () => {
             
             <div className="space-y-3">
               <span className="text-[#E53935] font-bold text-xs uppercase tracking-wider bg-red-50 px-3.5 py-1 rounded-full border border-red-100 inline-block">
-                The Yatra Cabs Advantage
+                The LookMyHolidays Advantage
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight leading-tight">
                 Why Thousands of Travelers Choose Us Every Day

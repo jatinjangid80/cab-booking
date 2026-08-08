@@ -73,7 +73,7 @@ export const MobileAppSection: React.FC = () => {
             <div className="pt-4 flex flex-wrap items-center gap-4">
               
               <button
-                onClick={() => alert('Yatra Cabs Android app download link will be sent to your mobile phone!')}
+                onClick={() => alert('LookMyHolidays Android app download link will be sent to your mobile phone!')}
                 className="px-5 py-3 rounded-full bg-white text-[#111827] font-bold text-sm shadow-xl hover:bg-slate-100 transition-all flex items-center gap-3 cursor-pointer"
               >
                 <div className="w-7 h-7 bg-[#E53935] rounded-lg text-white flex items-center justify-center">
@@ -86,7 +86,7 @@ export const MobileAppSection: React.FC = () => {
               </button>
 
               <button
-                onClick={() => alert('Yatra Cabs iOS app download link will be sent to your mobile phone!')}
+                onClick={() => alert('LookMyHolidays iOS app download link will be sent to your mobile phone!')}
                 className="px-5 py-3 rounded-full bg-white/10 text-white font-bold text-sm border border-white/20 hover:bg-white/20 transition-all flex items-center gap-3 cursor-pointer"
               >
                 <Apple className="w-6 h-6 text-white" />
@@ -118,7 +118,7 @@ export const MobileAppSection: React.FC = () => {
                 
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-bold text-red-500">YATRA CABS</span>
+                    <span className="font-bold text-red-500">LOOKMYHOLIDAYS</span>
                     <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full font-bold">GPS ACTIVE</span>
                   </div>
 

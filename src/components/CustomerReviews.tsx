@@ -28,7 +28,7 @@ export const CustomerReviews: React.FC = () => {
             What Our Customers Say
           </h2>
           <p className="text-base text-slate-500 font-medium">
-            Over 10,000+ happy families, business executives, and international tourists trust Yatra Cabs every month.
+            Over 10,000+ happy families, business executives, and international tourists trust LookMyHolidays every month.
           </p>
         </div>
 

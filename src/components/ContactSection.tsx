@@ -102,7 +102,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenBooking })
                 <Mail className="w-5 h-5 text-[#E53935] shrink-0 mt-0.5" />
                 <div>
                   <div className="font-bold text-[#111827] text-sm">Email Inquiries</div>
-                  <div className="text-slate-500 font-medium mt-0.5">support@yatracabs.com / booking@yatracabs.com</div>
+                  <div className="text-slate-500 font-medium mt-0.5">support@lookmyholidays.in / resv@lookmyholidays.in</div>
                 </div>
               </div>
             </div>

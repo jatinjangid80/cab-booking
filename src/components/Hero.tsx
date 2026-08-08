@@ -77,13 +77,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
             <div className="bg-white/90 backdrop-blur-xl border border-white p-6 rounded-3xl shadow-2xl shadow-indigo-900/10 transition-all">
 
               {/* Trip Type Selector Tabs */}
-              <div className="flex items-center gap-2 mb-5 p-1 bg-slate-100 rounded-2xl max-w-md">
-                {(['one-way', 'round-trip', 'local'] as TripType[]).map((type) => (
+              <div className="flex items-center gap-2 mb-5 p-1 bg-slate-100 rounded-2xl max-w-xl">
+                {(['one-way', 'round-trip', 'local', 'airport-transfer'] as TripType[]).map((type) => (
                   <button
                     key={type}
                     type="button"
                     onClick={() => setTripType(type)}
-                    className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-bold capitalize transition-all cursor-pointer ${tripType === type
+                    className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-bold capitalize transition-all cursor-pointer whitespace-nowrap ${tripType === type
                         ? 'bg-[#E53935] text-white shadow-md shadow-red-500/20'
                         : 'text-slate-600 hover:text-[#111827]'
                       }`}
@@ -91,6 +91,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
                     {type === 'one-way' && 'One Way'}
                     {type === 'round-trip' && 'Round Trip'}
                     {type === 'local' && 'Local Rental'}
+                    {type === 'airport-transfer' && 'Airport Transfer'}
                   </button>
                 ))}
               </div>
@@ -216,7 +217,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
                     <input
                       type="date"
                       value={pickupDate}
-                      min={new Date().toISOString().split('T')[0]}
+                      min={new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000 + 86400000).toISOString().split('T')[0]}
                       onChange={(e) => setPickupDate(e.target.value)}
                       className="w-full px-4 py-3 rounded-xl border-none bg-slate-50 text-sm font-semibold text-[#111827] focus:ring-2 focus:ring-red-500/20 outline-hidden transition-all"
                       required
@@ -276,7 +277,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBookingWithDetails }) => {
               <div className="relative rounded-[40px] overflow-hidden shadow-2xl border-8 border-white bg-[#111827] group rotate-2 hover:rotate-0 transition-transform duration-500">
                 <img
                   src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800"
-                  alt="Yatra Cabs Luxury Fleet"
+                  alt="LookMyHolidays Luxury Fleet"
                   className="w-full h-[380px] sm:h-[420px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
 
